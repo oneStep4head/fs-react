@@ -1,0 +1,22 @@
+@import "../components/metrics/metrics.scss";
+@import "../components/metrics/metric/metric.scss";
+@import "../components/dataPicker/dataPicker.scss";
+@import "../components/header/header.scss";
+@import "../components/nav/nav.scss";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+  background-color: #fff;
+
+  font-size: 16px;
+  line-height: 28px;
+
+  box-sizing: border-box;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #333;
+}

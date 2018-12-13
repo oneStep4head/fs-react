@@ -1,0 +1,27 @@
+.metric {
+  margin: 1rem 1rem;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  white-space: pre-wrap;
+  width: 200px;
+  padding: 20px;
+  min-height: 100px;
+  background-color: #f7f7f7;
+  border-radius: 20px;
+
+  &_active,
+  &:hover {
+    cursor: pointer;
+    background-color: #fff;
+    box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0.5);
+  }
+
+  &:active {
+    background-color: #f7f7f7;
+  }
+
+  &__complited {
+    text-decoration: line-through;
+  }
+}
