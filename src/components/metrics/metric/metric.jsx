@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import CloseIcon from 'components/close-icon/close-icon';
 import className from 'utils/class-names/class-names';
 
 class Metric extends PureComponent {
@@ -10,15 +11,17 @@ class Metric extends PureComponent {
   // }
 
   render() {
-    const { metric, toggleMetric } = this.props;
+    const { metric, toggleMetric, deleteMetric } = this.props;
 
     return (
       <div
         className={`metric ${metric.isCompleted ? 'metric__complited' : ''}`}
-        onClick={toggleMetric}
         data-id={metric.id}
       >
-        {metric.name}
+        <p className="metric__name">{metric.name}</p>
+        <div onClick={deleteMetric} data-metric-id={metric.id}>
+          <CloseIcon />
+        </div>
       </div>
     );
   }

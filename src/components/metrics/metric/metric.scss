@@ -1,14 +1,15 @@
 .metric {
+  position: relative;
   margin: 1rem 1rem;
   display: inline-block;
   box-sizing: border-box;
-  vertical-align: top;
   white-space: pre-wrap;
   width: 200px;
   padding: 20px;
   min-height: 100px;
   background-color: #f7f7f7;
   border-radius: 20px;
+  text-align: start;
 
   &_active,
   &:hover {

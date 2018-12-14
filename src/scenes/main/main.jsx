@@ -17,13 +17,15 @@ class Main extends Component {
     const { shouldChildUpdateMetrics } = this.state;
 
     return (
-      <div className="main">
+      <div className="main page">
         <Header />
-        <ValueSetter
-          shouldChildUpdateMetrics={shouldChildUpdateMetrics}
-          updateMetrics={this.updateMetrics}
-        />
-        <Metrics updateMetrics={this.updateMetrics} />
+        <div className="container">
+          <ValueSetter
+            shouldChildUpdateMetrics={shouldChildUpdateMetrics}
+            updateMetrics={this.updateMetrics}
+          />
+          <Metrics updateMetrics={this.updateMetrics} />
+        </div>
       </div>
     );
   }

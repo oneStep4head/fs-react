@@ -3,6 +3,8 @@
 @import "../components/dataPicker/dataPicker.scss";
 @import "../components/header/header.scss";
 @import "../components/nav/nav.scss";
+@import "../components/value-setter/value-setter.scss";
+@import "../components/close-icon/close-icon.scss";
 
 html,
 body {
@@ -19,4 +21,42 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: #333;
+}
+
+// LAYOUT
+.wrapper {
+  margin: 0 auto;
+  min-width: 90%;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container {
+  flex: 1;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.value-setter,
+.metrics {
+  flex-basis: 50%;
+}
+
+@media (max-width: 640px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .new-value {
+    flex-grow: 1;
+  }
+
+  .metrics {
+    flex-basis: 140px;
+  }
 }

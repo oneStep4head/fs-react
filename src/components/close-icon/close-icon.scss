@@ -1,0 +1,12 @@
+.close-icon {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  opacity: 0.6;
+  &:hover {
+    opacity: 1;
+  }
+  &:active {
+    color: #ed1b2f;
+  }
+}

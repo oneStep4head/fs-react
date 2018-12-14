@@ -5,7 +5,9 @@ class Header extends PureComponent {
   render() {
     return (
       <header className="header">
-        <Nav />
+        <div className="wrapper">
+          <Nav />
+        </div>
       </header>
     );
   }

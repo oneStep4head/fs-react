@@ -1,6 +1,6 @@
 const MOD_SEPARATOR = '_';
 
-const toCebabCase = string => String(string)
+const toKebabCase = string => String(string)
   .replace(/([A-Z])/g, '-$1')
   .toLowerCase();
 
@@ -9,7 +9,7 @@ const getMods = (...args) => {
 
   args.forEach((arg) => {
     if (typeof arg === 'string' || typeof arg === 'number') {
-      mods.push(toCebabCase(key));
+      mods.push(toKebabCase(key));
     } else if (Array.isArray(arg)) {
       mods.concat(getMods(...item));
     } else if (typeof arg === 'object') {

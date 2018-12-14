@@ -66,11 +66,11 @@ class ValueSetter extends Component {
     console.log(params);
     console.log(body);
 
-    // createRequest(addDataToMetric, params, body).then(({ status, data }) => {
-    //   if (status === 'OK') {
-    //     console.log(data);
-    //   }
-    // });
+    createRequest(addDataToMetric, params, body).then(({ status, data }) => {
+      if (status === 'OK') {
+        console.log(data);
+      }
+    });
   };
 
   render() {

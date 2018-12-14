@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import createRequest from 'utils/create-request';
-import { fetchMetrics, createMetric } from 'utils/api/api-config';
+import { fetchMetrics, createMetric, deleteMetric } from 'utils/api/api-config';
 import classNames from 'utils/class-names/class-names';
 import AddMetric from './add-metric/add-metric';
 import Metric from './metric/metric';
@@ -51,6 +51,21 @@ class Metrics extends Component {
       });
   };
 
+  deleteMetric = (event) => {
+    const { metricId } = event.currentTarget.dataset;
+    const params = {
+      metricId
+    };
+
+    this.setState({ isLoading: true });
+
+    createRequest(deleteMetric, params, null).then(({ status }) => {
+      if (status === 'OK') {
+        this.setState({ isLoading: false });
+      }
+    });
+  };
+
   // Throw flag out to all flag subscribers update
   updateMetrics = (metrics) => {
     const { updateMetrics } = this.props;
@@ -64,7 +79,12 @@ class Metrics extends Component {
     return (
       <div className={classNames('metrics', { loading: isLoading })}>
         {metrics.map(metric => (
-          <Metric metric={metric} toggleMetric={this.toggleMetric} key={metric.id} />
+          <Metric
+            deleteMetric={this.deleteMetric}
+            metric={metric}
+            toggleMetric={this.toggleMetric}
+            key={metric.id}
+          />
         ))}
         <AddMetric addMetric={this.addMetric} />
       </div>
