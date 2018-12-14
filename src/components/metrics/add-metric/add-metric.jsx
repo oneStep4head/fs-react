@@ -18,8 +18,8 @@ class AddMetric extends Component {
   render() {
     return (
       <form className="add-metric" onSubmit={this.onSubmit}>
-        <input className="add-metric_field" type="text" name="name" ref={this.textRef} />
-        <input className="add-metric_btn" type="submit" value="Add" />
+        <input className="c-input add-metric__field" type="text" name="name" ref={this.textRef} />
+        <input className="c-btn add-metric__btn" type="submit" value="Add" />
       </form>
     );
   }

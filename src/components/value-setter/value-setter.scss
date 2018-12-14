@@ -3,4 +3,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #f7f7f7;
+  border-radius: 20px;
+}
+
+.date-picker {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 1rem;
+  border-radius: 20px;
+  border: none;
+}
+
+.set-value {
+  width: 350px;
+
+  &__select {
+    margin-bottom: 1rem;
+  }
+  &__txt-input {
+    margin-bottom: 1rem;
+  }
+  &__btn {
+    margin-bottom: 1rem;
+  }
 }

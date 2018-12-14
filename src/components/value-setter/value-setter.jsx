@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import Calendar from 'react-calendar';
 import createRequest from 'utils/create-request';
 import { addDataToMetric } from 'utils/api/api-config';
@@ -8,29 +8,23 @@ class ValueSetter extends Component {
   static contextType = MetricContext;
 
   state = {
-    currentDate: new Date(),
-    selectValue: '',
-    inputValue: ''
+    currentDate: new Date()
   };
+
+  selectRef = createRef();
+
+  inputRef = createRef();
 
   onCalendarDateChange = (currentDate) => {
     this.setState({ currentDate });
   };
 
-  onSelectValueChange = (event) => {
-    this.setState({ selectValue: event.target.value });
-  };
-
-  onInputValueChange = (event) => {
-    this.setState({ inputValue: event.target.value });
-  };
-
   addValueToMetric = (event) => {
     event.preventDefault();
-    const { selectValue, currentDate, inputValue } = this.state;
+    const { currentDate } = this.state;
 
     const params = {
-      metricId: selectValue
+      metricId: this.selectRef.current.value
     };
     const body = {
       newValue: {
@@ -39,7 +33,7 @@ class ValueSetter extends Component {
           currentDate.getUTCMonth(),
           currentDate.getUTCDate()
         ),
-        value: inputValue
+        value: this.inputRef.current.value
       }
     };
 
@@ -48,6 +42,7 @@ class ValueSetter extends Component {
         console.log(data);
       }
     });
+    this.inputRef.current.value = '';
   };
 
   render() {
@@ -62,7 +57,11 @@ class ValueSetter extends Component {
           value={currentDate}
         />
         <form className="set-value" onSubmit={this.addValueToMetric}>
-          <select className="set-value__select" onChange={this.onSelectValueChange}>
+          <select
+            className="c-select set-value__select"
+            ref={this.selectRef}
+            onChange={this.onSelectValueChange}
+          >
             <option>--select-something--</option>
             {metrics.map(metric => (
               <option key={metric.id} value={metric.id}>
@@ -70,8 +69,14 @@ class ValueSetter extends Component {
               </option>
             ))}
           </select>
-          <input type="set-value__txt-input" onChange={this.onInputValueChange} />
-          <input className="btn set-value__btn" type="submit" value="Set!" />
+          <input
+            className="c-input set-value__txt-input"
+            type="text"
+            onChange={this.onInputValueChange}
+            placeholder="New value here..."
+            ref={this.inputRef}
+          />
+          <input className="c-btn set-value__btn" type="submit" value="Set!" />
         </form>
       </div>
     );

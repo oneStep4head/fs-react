@@ -1,3 +1,4 @@
+@import "./ui-kit.scss";
 @import "../components/metrics/metrics.scss";
 @import "../components/metrics/metric/metric.scss";
 @import "../components/dataPicker/dataPicker.scss";
@@ -5,6 +6,12 @@
 @import "../components/nav/nav.scss";
 @import "../components/value-setter/value-setter.scss";
 @import "../components/close-icon/close-icon.scss";
+
+$primary-color: #333;
+$secondary-color: #f7f7f7;
+$active-color: #ed1b2f;
+$font-family-regular: Arial, sans-serif;
+$border-color: #ddd;
 
 html,
 body {

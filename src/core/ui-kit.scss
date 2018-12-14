@@ -1,0 +1,125 @@
+$primary-color: #333;
+$secondary-color: #f7f7f7;
+$active-color: #ed1b2f;
+$font-family-regular: Arial, sans-serif;
+$border-color: #ddd;
+// UI-KIT
+.c-select {
+  position: relative;
+  width: 100%;
+  padding: 15px;
+  color: $primary-color;
+  font-family: $font-family-regular;
+  font-weight: bold;
+  border: solid 1px $border-color;
+  outline: none;
+  border-radius: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  background-origin: content-box;
+  background-position: center right;
+
+  & > option {
+    font-family: $font-family-regular;
+  }
+
+  &:hover {
+    border-color: rgba(0, 0, 0, 0.6);
+  }
+
+  &:active {
+    border: solid 1px $border-color;
+    border-bottom: none;
+  }
+
+  &:disabled,
+  &:disabled:hover {
+    border-color: $border-color;
+  }
+}
+
+.c-input {
+  width: 100%;
+  display: inline-block;
+  background-color: none;
+  border-radius: 5px;
+  border: 1px solid $border-color;
+  padding: 1rem;
+  box-sizing: border-box;
+  outline: none;
+  font-family: $font-family-regular;
+  font-weight: bold;
+  font-size: 1rem;
+  color: $primary-color;
+
+  &:focus {
+    border-color: $border-color;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.09);
+  }
+
+  &::placeholder {
+    opacity: 0.6;
+    color: $primary-color;
+    font-family: $font-family-regular;
+    font-weight: normal;
+  }
+
+  &::-webkit-input-placeholder {
+    opacity: 0.6;
+    color: $primary-color;
+    font-family: $font-family-regular;
+    font-weight: normal;
+  }
+
+  &::-ms-input-placeholder {
+    opacity: 0.6;
+    color: $primary-color;
+    font-family: $font-family-regular;
+    font-weight: normal;
+  }
+
+  &:focus::placeholder {
+    color: transparent;
+  }
+
+  &:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  &:focus::-ms-input-placeholder {
+    color: transparent;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.c-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  font-family: $font-family-regular;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 16px;
+  border: none;
+  text-transform: uppercase;
+  color: #f7f7f7;
+  border-radius: 5px;
+  background-color: #333;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:active {
+    color: $active-color;
+  }
+}
