@@ -1,19 +1,20 @@
 import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
+import MetricContext from 'components/metric-context/metric-context';
 
 class AddMetric extends Component {
-  static propTypes = {
-    addMetric: PropTypes.func.isRequired
-  };
+  static contextType = MetricContext;
+
+  // static propTypes = {
+  //   addMetric: PropTypes.func.isRequired
+  // };
 
   textRef = createRef();
 
   onSubmit = (event) => {
     event.preventDefault();
 
-    const { addMetric } = this.props;
-
-    console.log(this.textRef);
+    const { addMetric } = this.context;
 
     addMetric(this.textRef.current.value);
     this.textRef.current.value = '';

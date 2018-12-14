@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
-import createRequest from 'utils/create-request';
-import { fetchMetrics, createMetric, deleteMetric } from 'utils/api/api-config';
 import classNames from 'utils/class-names/class-names';
+// in context using transform
+import MetricContext from 'components/metric-context/metric-context';
+//
 import AddMetric from './add-metric/add-metric';
 import Metric from './metric/metric';
 
+// componentDidMount() {
+//   createRequest(fetchMetrics).then(({ status, data: metrics }) => {
+//     if (status === 'OK') {
+//       this.setState({ isLoading: false, metrics });
+//     }
+//   });
+// }
+
 class Metrics extends Component {
+  static contextType = MetricContext;
+
   state = {
-    metrics: [],
+    // metrics: [],
     isLoading: true
   };
-
-  componentDidMount() {
-    createRequest(fetchMetrics).then(({ status, data: metrics }) => {
-      if (status === 'OK') {
-        this.setState({ isLoading: false, metrics });
-      }
-    });
-  }
 
   // УЧЕБНЫЙ МЕТОД, ТАК ДЛЯ ПИМЕРА
   toggleMetric = (event) => {
@@ -33,60 +36,20 @@ class Metrics extends Component {
     }));
   };
 
-  // TODO: MAKE MODAL FROM <AddMetric /> SHIT NIGGA!
-  addMetric = (name) => {
-    this.setState({ isLoading: true });
-
-    createRequest(createMetric, null, { name })
-      .then(({ status, data }) => {
-        if (status === 'OK') {
-          this.setState(({ metrics }) => ({
-            isLoading: false,
-            metrics: metrics.concat(data)
-          }));
-        }
-      })
-      .then(() => {
-        this.updateMetrics(true);
-      });
-  };
-
-  deleteMetric = (event) => {
-    const { metricId } = event.currentTarget.dataset;
-    const params = {
-      metricId
-    };
-
-    this.setState({ isLoading: true });
-
-    createRequest(deleteMetric, params, null).then(({ status }) => {
-      if (status === 'OK') {
-        this.setState({ isLoading: false });
-      }
-    });
-  };
-
-  // Throw flag out to all flag subscribers update
-  updateMetrics = (metrics) => {
-    const { updateMetrics } = this.props;
-
-    updateMetrics(metrics);
-  };
-
   render() {
-    const { metrics, isLoading } = this.state;
+    const { metrics, deleteMetric, isLoading } = this.context;
 
     return (
       <div className={classNames('metrics', { loading: isLoading })}>
         {metrics.map(metric => (
           <Metric
-            deleteMetric={this.deleteMetric}
+            deleteMetric={deleteMetric}
             metric={metric}
             toggleMetric={this.toggleMetric}
             key={metric.id}
           />
         ))}
-        <AddMetric addMetric={this.addMetric} />
+        <AddMetric />
       </div>
     );
   }
