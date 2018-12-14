@@ -1,37 +1,17 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
 import createRequest from 'utils/create-request';
-import { fetchMetrics, addDataToMetric } from 'utils/api/api-config';
-import classNames from 'utils/class-names/class-names';
+import { addDataToMetric } from 'utils/api/api-config';
+import MetricContext from 'components/metric-context/metric-context';
 
 class ValueSetter extends Component {
+  static contextType = MetricContext;
+
   state = {
-    metrics: [],
-    isLoading: true,
     currentDate: new Date(),
     selectValue: '',
     inputValue: ''
   };
-
-  componentDidMount() {
-    createRequest(fetchMetrics).then(({ status, data: metrics }) => {
-      if (status === 'OK') {
-        this.setState({ isLoading: false, metrics });
-      }
-    });
-  }
-
-  // componentWillReceiveProps(nextProps) {
-  //   const { shouldChildUpdateMetrics } = this.props;
-
-  //   if (nextProps.shouldChildUpdateMetrics !== shouldChildUpdateMetrics) {
-  //     createRequest(fetchMetrics).then(({ status, data: metrics }) => {
-  //       if (status === 'OK') {
-  //         this.setState({ isLoading: false, metrics });
-  //       }
-  //     })
-  //   }
-  // }
 
   onCalendarDateChange = (currentDate) => {
     this.setState({ currentDate });
@@ -63,9 +43,6 @@ class ValueSetter extends Component {
       }
     };
 
-    console.log(params);
-    console.log(body);
-
     createRequest(addDataToMetric, params, body).then(({ status, data }) => {
       if (status === 'OK') {
         console.log(data);
@@ -74,24 +51,11 @@ class ValueSetter extends Component {
   };
 
   render() {
-    const { currentDate, isLoading, metrics } = this.state;
-
-    const { shouldChildUpdateMetrics, updateMetrics } = this.props;
-
-    if (shouldChildUpdateMetrics) {
-      createRequest(fetchMetrics)
-        .then(({ status, data: metrics }) => {
-          if (status === 'OK') {
-            this.setState({ isLoading: false, metrics });
-          }
-        })
-        .then(() => {
-          updateMetrics(!shouldChildUpdateMetrics);
-        });
-    }
+    const { currentDate } = this.state;
+    const { metrics } = this.context;
 
     return (
-      <div className={classNames('value-setter', { loading: isLoading })}>
+      <div className="value-setter">
         <Calendar
           className="date-picker"
           onChange={this.onCalendarDateChange}

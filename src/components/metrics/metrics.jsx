@@ -1,26 +1,10 @@
 import React, { Component } from 'react';
-import classNames from 'utils/class-names/class-names';
-// in context using transform
 import MetricContext from 'components/metric-context/metric-context';
-//
 import AddMetric from './add-metric/add-metric';
 import Metric from './metric/metric';
 
-// componentDidMount() {
-//   createRequest(fetchMetrics).then(({ status, data: metrics }) => {
-//     if (status === 'OK') {
-//       this.setState({ isLoading: false, metrics });
-//     }
-//   });
-// }
-
 class Metrics extends Component {
   static contextType = MetricContext;
-
-  state = {
-    // metrics: [],
-    isLoading: true
-  };
 
   // УЧЕБНЫЙ МЕТОД, ТАК ДЛЯ ПИМЕРА
   toggleMetric = (event) => {
@@ -37,17 +21,12 @@ class Metrics extends Component {
   };
 
   render() {
-    const { metrics, deleteMetric, isLoading } = this.context;
+    const { metrics } = this.context;
 
     return (
-      <div className={classNames('metrics', { loading: isLoading })}>
+      <div className="metrics">
         {metrics.map(metric => (
-          <Metric
-            deleteMetric={deleteMetric}
-            metric={metric}
-            toggleMetric={this.toggleMetric}
-            key={metric.id}
-          />
+          <Metric metric={metric} key={metric.id} />
         ))}
         <AddMetric />
       </div>

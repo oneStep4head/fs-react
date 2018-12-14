@@ -1,13 +1,8 @@
 import React, { Component, createRef } from 'react';
-import PropTypes from 'prop-types';
 import MetricContext from 'components/metric-context/metric-context';
 
 class AddMetric extends Component {
   static contextType = MetricContext;
-
-  // static propTypes = {
-  //   addMetric: PropTypes.func.isRequired
-  // };
 
   textRef = createRef();
 

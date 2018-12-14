@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-
 import Header from 'components/header/header';
 import Metrics from 'components/metrics/metrics';
 import ValueSetter from 'components/value-setter/value-setter';
-//
 import MetricContext from 'components/metric-context/metric-context';
 import createRequest from 'utils/create-request';
 import { fetchMetrics, createMetric, deleteMetric } from 'utils/api/api-config';
+import classNames from 'utils/class-names/class-names';
+
 
 class Main extends Component {
   state = {
@@ -35,12 +35,8 @@ class Main extends Component {
     });
   };
 
-  deleteMetric = (event) => {
-    const { metricId } = event.currentTarget.dataset;
-    const params = {
-      metricId
-    };
-
+  deleteMetric = (params) => {
+    const { metricId } = params;
     this.setState({ isLoading: true });
 
     createRequest(deleteMetric, params, null).then(({ status }) => {
@@ -54,12 +50,12 @@ class Main extends Component {
   };
 
   render() {
-    const { metrics } = this.state;
-    
+    const { metrics, isLoading } = this.state;
+
     return (
       <div className="main page">
         <Header />
-        <div className="container">
+        <div className={classNames('container', { loading: isLoading })}>
           <MetricContext.Provider
             value={{
               metrics,
