@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from 'components/header/header';
+import Loader from 'components/loader/loader';
 import Metrics from 'components/metrics/metrics';
 import ValueSetter from 'components/value-setter/value-setter';
 import MetricContext from 'components/metric-context/metric-context';
@@ -51,11 +52,15 @@ class Main extends Component {
 
   render() {
     const { metrics, isLoading } = this.state;
-
+    if (isLoading) {
+      return (
+        <Loader />
+      );
+    }
     return (
       <div className="main page">
         <Header />
-        <div className={classNames('container', { loading: isLoading })}>
+        <div className="container">
           <MetricContext.Provider
             value={{
               metrics,
@@ -71,5 +76,6 @@ class Main extends Component {
     );
   }
 }
+
 
 export default Main;
