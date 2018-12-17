@@ -1,10 +1,10 @@
 .metrics {
-  column-width: 260px;
+  column-width: 430px;
   text-align: center;
 
   &__new-metric {
     position: relative;
-    display: block;
+    display: inline-block;
     box-sizing: border-box;
     white-space: pre-wrap;
     width: 5rem;
