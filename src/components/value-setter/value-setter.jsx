@@ -72,9 +72,9 @@ class ValueSetter extends Component {
           <input
             className="c-input set-value__txt-input"
             type="text"
-            onChange={this.onInputValueChange}
             placeholder="New value here..."
             ref={this.inputRef}
+            pattern="[0-9]"
           />
           <input className="c-btn set-value__btn" type="submit" value="Set!" />
         </form>

@@ -28,7 +28,8 @@ class Metrics extends Component {
         {metrics.map(metric => (
           <Metric metric={metric} key={metric.id} />
         ))}
-        <AddMetric />
+        <div className="metrics__new-metric">+</div>
+        {/* <AddMetric /> */}
       </div>
     );
   }

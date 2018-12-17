@@ -1,4 +1,30 @@
 .metrics {
   column-width: 260px;
   text-align: center;
+
+  &__new-metric {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    white-space: pre-wrap;
+    width: 5rem;
+    height: 5rem;
+    margin: 1rem auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 20px;
+    text-align: center;
+    user-select: none;
+
+    &_active,
+    &:hover {
+      cursor: pointer;
+      background-color: #fff;
+      box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0.5);
+    }
+
+    &:active {
+      background-color: #f7f7f7;
+    }
+  }
 }

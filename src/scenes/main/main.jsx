@@ -6,7 +6,6 @@ import ValueSetter from 'components/value-setter/value-setter';
 import MetricContext from 'components/metric-context/metric-context';
 import createRequest from 'utils/create-request';
 import { fetchMetrics, createMetric, deleteMetric } from 'utils/api/api-config';
-import classNames from 'utils/class-names/class-names';
 
 
 class Main extends Component {

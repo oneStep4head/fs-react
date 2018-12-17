@@ -10,6 +10,7 @@
   background-color: #f7f7f7;
   border-radius: 20px;
   text-align: start;
+  user-select: none;
 
   &_active,
   &:hover {
@@ -20,9 +21,5 @@
 
   &:active {
     background-color: #f7f7f7;
-  }
-
-  &__complited {
-    text-decoration: line-through;
   }
 }
