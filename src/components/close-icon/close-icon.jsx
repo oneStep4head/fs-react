@@ -1,28 +1,33 @@
 import React from 'react';
 
-const CloseIcon = () => (
-  <svg
-    className="close-icon"
-    xmlns="http://www.w3.org/2000/svg"
-    width="12"
-    height="12"
-    viewBox="0 0 12 12"
-  >
-    <defs>
-      <path
-        id="a"
-        d="M.561.098L.098.56a.332.332 0 0 0 0 .47l8.87 8.871c.13.13.34.13.47 0l.463-.463a.331.331 0 0 0 0-.47L1.033.097a.331.331 0 0 0-.47 0z"
-      />
-    </defs>
-    <g fill="none" fillRule="evenodd">
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeWidth="2"
-        d="M1.714 1.714l8.572 8.572M10.286 1.714l-8.572 8.572"
-      />
-    </g>
-  </svg>
-);
+function CloseIcon(props) {
+  const { byClick } = props;
+  return (
+    <div onClick={byClick}>
+      <svg
+        className="close-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="12"
+        height="12"
+        viewBox="0 0 12 12"
+      >
+        <defs>
+          <path
+            id="a"
+            d="M.561.098L.098.56a.332.332 0 0 0 0 .47l8.87 8.871c.13.13.34.13.47 0l.463-.463a.331.331 0 0 0 0-.47L1.033.097a.331.331 0 0 0-.47 0z"
+          />
+        </defs>
+        <g fill="none" fillRule="evenodd">
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeWidth="2"
+            d="M1.714 1.714l8.572 8.572M10.286 1.714l-8.572 8.572"
+          />
+        </g>
+      </svg>
+    </div>
+  );
+}
 
 export default CloseIcon;

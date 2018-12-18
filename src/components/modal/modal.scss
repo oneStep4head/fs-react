@@ -1,0 +1,22 @@
+.modal__popup {
+  position: absolute;
+  width: 70%;
+  margin: 0 auto;
+  top: 10vw;
+  right: 20vh;
+  left: 20vh;
+
+  padding: 42px;
+
+  opacity: 1;
+  background-color: papayawhip;
+  transition: 1s;
+
+  outline: none;
+  border: 1px solid #ddd;
+}
+
+.modal__overlay {
+  // opacity: 0.7;
+  background-color: #000;
+}

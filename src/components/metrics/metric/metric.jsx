@@ -23,7 +23,7 @@ class Metric extends PureComponent {
       <div className="metric" data-id={metric.id}>
         <p className="metric__name">{metric.name}</p>
         <div onClick={this.onClick} data-metric-id={metric.id}>
-          <CloseIcon />
+          <CloseIcon onClick={this.onClick} data-metric-id={metric.id} />
         </div>
       </div>
     );

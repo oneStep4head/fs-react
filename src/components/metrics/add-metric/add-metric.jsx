@@ -18,6 +18,7 @@ class AddMetric extends Component {
   render() {
     return (
       <form className="add-metric" onSubmit={this.onSubmit}>
+        <h2 className="add-metric__title">Enter new metric name:</h2>
         <input className="c-input add-metric__field" type="text" name="name" ref={this.textRef} />
         <input className="c-btn add-metric__btn" type="submit" value="Add" />
       </form>
