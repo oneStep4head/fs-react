@@ -20,6 +20,7 @@ const compileUrl = (url, params) => {
         } else {
           // eslint-disable-next-line no-console
           console.error(new Error('can not find parameter'));
+          console.error(key);
         }
       }
     } else {

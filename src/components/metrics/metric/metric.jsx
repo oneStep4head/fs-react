@@ -9,11 +9,8 @@ class Metric extends PureComponent {
   onClick = (event) => {
     const { deleteMetric } = this.context;
     const { metricId } = event.currentTarget.dataset;
-    const params = {
-      metricId
-    };
 
-    deleteMetric(params);
+    deleteMetric({ metricId });
   };
 
   render() {
@@ -23,7 +20,7 @@ class Metric extends PureComponent {
       <div className="metric" data-id={metric.id}>
         <p className="metric__name">{metric.name}</p>
         <div onClick={this.onClick} data-metric-id={metric.id}>
-          <CloseIcon onClick={this.onClick} data-metric-id={metric.id} />
+          <CloseIcon />
         </div>
       </div>
     );

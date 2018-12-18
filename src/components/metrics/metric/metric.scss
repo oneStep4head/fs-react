@@ -7,7 +7,7 @@
   width: 150px;
   padding: 20px;
   min-height: 100px;
-  background-color: #f7f7f7;
+  background-color: var(--color-bgc);
   border-radius: 20px;
   text-align: start;
   user-select: none;
@@ -15,11 +15,11 @@
   &_active,
   &:hover {
     cursor: pointer;
-    background-color: #fff;
+    background-color: var(--color-page-obj);
     box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0.5);
   }
 
   &:active {
-    background-color: #f7f7f7;
+    background-color: var(--color-page-obj);
   }
 }

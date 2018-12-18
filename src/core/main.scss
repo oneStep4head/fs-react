@@ -1,11 +1,21 @@
+:root {
+  --color-page-section: #212121;
+  --color-bgc: #303030;
+  --color-page-obj: #424242;
+  --color-primary: #ed1b2f;
+  --color-accent: #3e50b4;
+  --txt-color: #fff;
+}
+
 @import "./ui-kit.scss";
-@import "../components/metrics/metrics.scss";
 @import "../components/metrics/metric/metric.scss";
+@import "../components/metrics/metrics.scss";
 @import "../components/loader/loader.scss";
 @import "../components/header/header.scss";
 @import "../components/nav/nav.scss";
 @import "../components/value-setter/value-setter.scss";
 @import "../components/close-icon/close-icon.scss";
+@import "../components/plus-icon/plus-icon.scss";
 @import "../components/modal/modal.scss";
 @import "../components/metrics/add-metric/add-metric.scss";
 
@@ -20,7 +30,7 @@ body {
   margin: 0;
   padding: 0;
 
-  background-color: #fff;
+  background-color: var(--color-bgc);
 
   font-size: 16px;
   line-height: 28px;
@@ -29,7 +39,7 @@ body {
 
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  color: #333;
+  color: var(--txt-color);
 }
 
 // LAYOUT

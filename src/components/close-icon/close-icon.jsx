@@ -1,9 +1,8 @@
 import React from 'react';
 
-function CloseIcon(props) {
-  const { byClick } = props;
+function CloseIcon() {
   return (
-    <div onClick={byClick}>
+    <div>
       <svg
         className="close-icon"
         xmlns="http://www.w3.org/2000/svg"

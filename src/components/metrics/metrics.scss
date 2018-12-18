@@ -1,30 +1,36 @@
 .metrics {
   column-width: 430px;
   text-align: center;
+  background-color: var(--color-page-section);
+  border-radius: 20px;
+  margin: 1rem;
 
   &__new-metric {
-    position: relative;
-    display: inline-block;
-    box-sizing: border-box;
-    white-space: pre-wrap;
-    width: 5rem;
-    height: 5rem;
-    margin: 1rem auto;
-    padding: 20px;
-    background-color: #f7f7f7;
-    border-radius: 20px;
-    text-align: center;
-    user-select: none;
+    @extend .metric;
+
+    // position: relative;
+    // display: inline-block;
+    // box-sizing: border-box;
+    // white-space: pre-wrap;
+    width: 6rem;
+    height: 6rem;
+    vertical-align: bottom;
+    // margin: 1rem auto;
+    // padding: 20px;
+    // background-color: var(--color-bgc);
+    // border-radius: 20px;
+    // text-align: center;
+    // user-select: none;
 
     &_active,
     &:hover {
       cursor: pointer;
-      background-color: #fff;
+      background-color: var(--color-page-obj);
       box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0.5);
     }
 
     &:active {
-      background-color: #f7f7f7;
+      background-color: var(--color-page-obj);
     }
   }
 }

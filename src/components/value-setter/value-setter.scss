@@ -1,18 +1,33 @@
 .value-setter {
-  padding: 1rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  background-color: #f7f7f7;
+  flex-direction: column;
+
+  margin: 1rem;
+  padding: 1rem;
+
   border-radius: 20px;
+  background-color: var(--color-page-section);
 }
 
 .date-picker {
-  background-color: #fff;
-  padding: 20px;
   margin-bottom: 1rem;
-  border-radius: 20px;
+  padding: 20px;
+  color: var(--txt-color);
+
   border: none;
+  border-radius: 20px;
+  background-color: var(--color-page-obj);
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: var(--color-primary);
+}
+
+.react-calendar__tile--active,
+.react-calendar__tile--active:enabled:focus,
+.react-calendar__tile--active:enabled:hover {
+  background-color: var(--color-primary);
 }
 
 .set-value {
@@ -25,6 +40,8 @@
     margin-bottom: 1rem;
   }
   &__btn {
-    margin-bottom: 1rem;
+    width: 30%;
+    display: block;
+    margin: 1rem auto;
   }
 }

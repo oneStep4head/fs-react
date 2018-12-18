@@ -4,6 +4,7 @@ import MetricContext from 'components/metric-context/metric-context';
 import Modal from 'components/modal/modal';
 import AddMetric from './add-metric/add-metric';
 import Metric from './metric/metric';
+import PlusIcon from 'components/plus-icon/plus-icon';
 
 class Metrics extends Component {
   static contextType = MetricContext;
@@ -43,7 +44,7 @@ class Metrics extends Component {
           <Metric metric={metric} key={metric.id} />
         ))}
         <div className="metrics__new-metric" onClick={this.handleOpenModal}>
-          +
+          <PlusIcon />
         </div>
         <Modal isOpen={this.state.showModal} handleCloseModal={this.handleCloseModal}>
           <AddMetric />

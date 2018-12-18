@@ -39,7 +39,7 @@ class Main extends Component {
     const { metricId } = params;
     this.setState({ isLoading: true });
 
-    createRequest(deleteMetric, params, null).then(({ status }) => {
+    createRequest(deleteMetric, params, {}).then(({ status }) => {
       if (status === 'OK') {
         this.setState(({ metrics }) => ({
           isLoading: false,
