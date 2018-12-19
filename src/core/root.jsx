@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 // import DatePicker from 'calendar/calendar';
 // HOW IT SHOULD BE
 import Main from 'scenes/main/main';
+import Metrics from 'scenes/metrics/metrics';
 import About from 'scenes/about/about';
 
 function Root() {
@@ -13,6 +14,7 @@ function Root() {
         {/* <Link to="/">main</Link>
         <Link to="/about">about</Link> */}
         <Route exact path="/" component={Main} />
+        <Route path="/metrics" component={Metrics} />
         <Route path="/about" component={About} />
       </div>
     </BrowserRouter>
