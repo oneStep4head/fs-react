@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import MetricContext from 'components/metric-context/metric-context';
 // import Modal from 'react-modal';
 import Modal from 'components/modal/modal';
+import PlusIcon from 'components/plus-icon/plus-icon';
 import AddMetric from './add-metric/add-metric';
 import Metric from './metric/metric';
-import PlusIcon from 'components/plus-icon/plus-icon';
 
 class Metrics extends Component {
   static contextType = MetricContext;
@@ -37,6 +37,7 @@ class Metrics extends Component {
 
   render() {
     const { metrics } = this.context;
+    const { showModal } = this.state;
 
     return (
       <div className="metrics">
@@ -46,7 +47,7 @@ class Metrics extends Component {
         <div className="metrics__new-metric" onClick={this.handleOpenModal}>
           <PlusIcon />
         </div>
-        <Modal isOpen={this.state.showModal} handleCloseModal={this.handleCloseModal}>
+        <Modal isOpen={showModal} handleCloseModal={this.handleCloseModal}>
           <AddMetric />
         </Modal>
       </div>

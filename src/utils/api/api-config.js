@@ -10,7 +10,7 @@ export const createMetric = {
 
 export const putcheMetric = {
   path: '/api/v001/metrics/:metricId',
-  method: 'PUTCH'
+  method: 'PATCH'
 };
 
 export const addDataToMetric = {

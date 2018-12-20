@@ -19,6 +19,7 @@ class ValueSetter extends Component {
     this.setState({ currentDate });
   };
 
+  // TODO
   addValueToMetric = (event) => {
     event.preventDefault();
     const { currentDate } = this.state;
@@ -74,7 +75,8 @@ class ValueSetter extends Component {
             type="text"
             placeholder="New value here..."
             ref={this.inputRef}
-            pattern="[0-9]"
+            pattern="[0-9]+"
+            required
           />
           <input className="c-btn set-value__btn" type="submit" value="Set!" />
         </form>

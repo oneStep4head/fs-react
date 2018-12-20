@@ -3,7 +3,7 @@ import Header from 'components/header/header';
 import Loader from 'components/loader/loader';
 import MetricContext from 'components/metric-context/metric-context';
 import createRequest from 'utils/create-request';
-import { fetchMetrics } from 'utils/api/api-config';
+import { fetchMetrics, putcheMetric } from 'utils/api/api-config';
 import Charts from 'components/charts/charts';
 
 class Metrics extends Component {
@@ -20,6 +20,24 @@ class Metrics extends Component {
     });
   }
 
+  updateMetric = (metricId, newData) => {
+    this.setState({ isLoading: true });
+
+    createRequest(putcheMetric, { metricId }, { newData }).then(({ status, data }) => {
+      if (status === 'OK') {
+        this.setState(({ metrics }) => ({
+          isLoading: false,
+          metrics: metrics.map((metric) => {
+            if (metric.id === metricId) {
+              return data;
+            }
+            return metric;
+          })
+        }));
+      }
+    });
+  };
+
   render() {
     const { metrics, isLoading } = this.state;
     if (isLoading) {
@@ -31,7 +49,8 @@ class Metrics extends Component {
         <div className="container">
           <MetricContext.Provider
             value={{
-              metrics
+              metrics,
+              updateMetric: this.updateMetric
             }}
           >
             <Charts />
