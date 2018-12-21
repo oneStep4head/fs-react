@@ -9,7 +9,7 @@ class Header extends PureComponent {
     const cookies = new Cookies();
     cookies.remove('userId');
 
-    this.props.history.push('../');
+    this.props.history.push('/');
   };
 
   render() {
@@ -17,7 +17,7 @@ class Header extends PureComponent {
       <header className="header">
         <div className="wrapper header__wrapper">
           <Nav />
-          {/* {<input className="c-btn logout-btn" type="button" value="LogOut" onClick={this.logout} />} */}
+          <input className="c-btn logout-btn" type="button" value="LogOut" onClick={this.logout} />
         </div>
       </header>
     );
