@@ -22,3 +22,18 @@ export const deleteMetric = {
   path: '/api/v001/metrics/:metricId',
   method: 'DELETE'
 };
+
+export const fetchUserByName = {
+  path: '/api/v001/users/name/:userName',
+  method: 'GET'
+};
+
+export const fetchCurrentUser = {
+  path: '/api/v001/users/current',
+  method: 'GET'
+};
+
+export const createUser = {
+  path: '/api/v001/users',
+  method: 'POST'
+};

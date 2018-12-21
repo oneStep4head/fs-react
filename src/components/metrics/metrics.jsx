@@ -3,6 +3,7 @@ import MetricContext from 'components/metric-context/metric-context';
 // import Modal from 'react-modal';
 import Modal from 'components/modal/modal';
 import PlusIcon from 'components/plus-icon/plus-icon';
+import CloseIcon from 'components/close-icon/close-icon';
 import AddMetric from './add-metric/add-metric';
 import Metric from './metric/metric';
 

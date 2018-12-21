@@ -5,19 +5,29 @@ import Metrics from 'components/metrics/metrics';
 import ValueSetter from 'components/value-setter/value-setter';
 import MetricContext from 'components/metric-context/metric-context';
 import createRequest from 'utils/create-request';
-import { fetchMetrics, createMetric, deleteMetric } from 'utils/api/api-config';
+import { fetchMetrics, createMetric, deleteMetric, fetchCurrentUser } from 'utils/api/api-config';
 
 
 class Main extends Component {
   state = {
     metrics: [],
+    currentUser: {},
     isLoading: true
   };
 
   componentDidMount() {
     createRequest(fetchMetrics).then(({ status, data: metrics }) => {
-      if (status === 'OK') {
+      if (status === 'OK' && metrics !== undefined) {
         this.setState({ isLoading: false, metrics });
+      } else if (status === 'OK' && metrics === undefined) {
+        this.setState({ isLoading: false });
+      }
+    });
+    createRequest(fetchCurrentUser).then(({ status, data: currentUser }) => {
+      if (status === 'OK' && currentUser !== undefined) {
+        this.setState({ isLoading: false, currentUser });
+      } else if (status === 'OK' && currentUser === undefined) {
+        this.setState({ isLoading: false });
       }
     });
   }

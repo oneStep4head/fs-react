@@ -14,8 +14,10 @@ class Metrics extends Component {
 
   componentDidMount() {
     createRequest(fetchMetrics).then(({ status, data: metrics }) => {
-      if (status === 'OK') {
+      if (status === 'OK' && metrics !== undefined) {
         this.setState({ isLoading: false, metrics });
+      } else if (status === 'OK' && metrics === undefined) {
+        this.setState({ isLoading: false });
       }
     });
   }
