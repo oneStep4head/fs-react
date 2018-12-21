@@ -1,0 +1,32 @@
+.welcome-screen {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-image: url("./bgi.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.welcome {
+  position: absolute;
+  margin: 1rem;
+  top: 10vh;
+  right: 10vw;
+
+  &__advertiser,
+  &__form {
+    display: inline-block;
+    width: 250px;
+    vertical-align: top;
+  }
+
+  &__input {
+    margin-bottom: 1rem;
+  }
+}
+
+.welcome__advertiser,
+.welcome__subtitle {
+  margin: 0;
+  padding: 0;
+}

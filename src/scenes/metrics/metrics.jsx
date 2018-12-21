@@ -49,14 +49,16 @@ class Metrics extends Component {
       <div className="main page">
         <Header />
         <div className="container">
-          <MetricContext.Provider
-            value={{
-              metrics,
-              updateMetric: this.updateMetric
-            }}
-          >
-            <Charts />
-          </MetricContext.Provider>
+          <div className="wrapper">
+            <MetricContext.Provider
+              value={{
+                metrics,
+                updateMetric: this.updateMetric
+              }}
+            >
+              <Charts />
+            </MetricContext.Provider>
+          </div>
         </div>
       </div>
     );

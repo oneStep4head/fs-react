@@ -1,10 +1,12 @@
 :root {
+  --font-family-regular: Arial, sans-serif;
   --color-page-section: #212121;
   --color-bgc: #303030;
   --color-page-obj: #424242;
   --color-primary: #ed1b2f;
   --color-accent: #3e50b4;
   --txt-color: #fff;
+  --txt-color-dark: #333;
 }
 
 @import "./ui-kit.scss";
@@ -21,6 +23,8 @@
 @import "../components/chart/chart.scss";
 // @import "../components/charts/charts.scss";
 @import "../components/spoiler/spoiler.scss";
+@import "../scenes/welcome/welcome.scss";
+@import "../components/value-editor/value-editor.scss";
 
 $primary-color: #333;
 $secondary-color: #f7f7f7;

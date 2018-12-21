@@ -50,14 +50,21 @@ class ValueEditor extends PureComponent {
         {metric.data.map(dataObj => (
           <div data-id={dataObj.id} className="value" onChange={this.updateData} key={dataObj.id}>
             <input
+              className="value__date"
               name="date"
               type="date"
               defaultValue={new Date(dataObj.date).toISOString().substr(0, 10)}
             />
-            <input name="value" type="text" defaultValue={dataObj.value} />
+            <input
+              className="c-input value__input"
+              name="value"
+              type="text"
+              defaultValue={dataObj.value}
+              pattern="[0-9]+"
+            />
           </div>
         ))}
-        <input type="submit" value="Edit" />
+        <input className="c-btn value-editor__btn" type="submit" value="Edit" />
       </form>
     );
   }

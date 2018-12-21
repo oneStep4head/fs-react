@@ -49,9 +49,12 @@ class ValueSetter extends Component {
   render() {
     const { currentDate } = this.state;
     const { metrics } = this.context;
+    const { currentUser } = this.props;
 
     return (
       <div className="value-setter">
+        <h2 className="greeter">{`Hi, ${currentUser.name}! What's new?`}</h2>
+
         <Calendar
           className="date-picker"
           onChange={this.onCalendarDateChange}

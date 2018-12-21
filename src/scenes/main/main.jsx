@@ -5,7 +5,9 @@ import Metrics from 'components/metrics/metrics';
 import ValueSetter from 'components/value-setter/value-setter';
 import MetricContext from 'components/metric-context/metric-context';
 import createRequest from 'utils/create-request';
-import { fetchMetrics, createMetric, deleteMetric, fetchCurrentUser } from 'utils/api/api-config';
+import {
+  fetchMetrics, createMetric, deleteMetric, fetchCurrentUser
+} from 'utils/api/api-config';
 
 
 class Main extends Component {
@@ -60,7 +62,9 @@ class Main extends Component {
   };
 
   render() {
-    const { metrics, isLoading } = this.state;
+    const { metrics, isLoading, currentUser } = this.state;
+    console.log(currentUser);
+
     if (isLoading) {
       return (
         <Loader />
@@ -77,7 +81,7 @@ class Main extends Component {
               addMetric: this.addMetric
             }}
           >
-            <ValueSetter />
+            <ValueSetter currentUser={currentUser} />
             <Metrics />
           </MetricContext.Provider>
         </div>

@@ -46,11 +46,11 @@ class Welcome extends Component {
     return (
       <section className="welcome-screen">
         <div className="welcome">
-          <h2>Check this out!</h2>
-          <form action="submit" onSubmit={this.auth}>
-            <p>Enter your name:</p>
-            <input className="input" type="text" ref={this.userNameRef} />
-            <input className="btn" type="submit" />
+          <h2 className="welcome__advertiser">Check this out!</h2>
+          <form className="welcome__form" action="submit" onSubmit={this.auth}>
+            <p className="welcome__subtitle">Enter your name:</p>
+            <input className="c-input welcome__input" type="text" ref={this.userNameRef} />
+            <input className="c-btn" type="submit" value="Login" />
           </form>
         </div>
       </section>

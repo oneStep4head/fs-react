@@ -29,7 +29,7 @@ export const fetchUserByName = {
 };
 
 export const fetchCurrentUser = {
-  path: '/api/v001/users/current',
+  path: '/api/v001/users/current/user',
   method: 'GET'
 };
 

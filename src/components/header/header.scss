@@ -5,4 +5,13 @@
   width: 100%;
   height: 5rem;
   border-bottom: 1px solid var(--color-page-obj);
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.logout-btn {
+  width: 150px;
 }

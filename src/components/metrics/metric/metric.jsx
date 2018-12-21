@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import CloseIcon from 'components/close-icon/close-icon';
 import MetricContext from 'components/metric-context/metric-context';
 import Modal from 'components/modal/modal';
+import Chart from 'components/chart/chart';
 
 class Metric extends PureComponent {
   static contextType = MetricContext;
@@ -37,7 +38,7 @@ class Metric extends PureComponent {
           <CloseIcon />
         </div>
         <Modal isOpen={isOpened} handleCloseModal={this.hideChart}>
-          <p>ПУК</p>
+          <Chart metric={metric} />
         </Modal>
       </div>
     );

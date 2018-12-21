@@ -1,5 +1,6 @@
 .spoiler {
   padding: 1rem;
+  user-select: none;
 
   &__head {
     width: 100%;
@@ -19,7 +20,7 @@
 
     transition: all 0.3s ease-out;
     transform: translateY(-11%);
-
+    background-color: var(--color-page-section);
     opacity: 0.7;
 
     &_opened {
